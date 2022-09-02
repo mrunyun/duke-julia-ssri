@@ -1,7 +1,12 @@
 # Simple example of how to use DataFrames in Julia
 
 # Declare packages
+import Pkg; Pkg.add("FreqTables")
+import Pkg; Pkg.add("CSV")
+import Pkg; Pkg.add("DataFrames")
+import Pkg; Pkg.add("GLM")
 using DataFrames
+using CSV
 using GLM
 using FreqTables
 
@@ -11,7 +16,7 @@ using FreqTables
 # 1. Exploring your data
 
 # import some data (Stata's famed "auto" dataset)
-auto = readtable("auto.csv"); #makefactors = true
+auto = CSV.read("auto.csv", DataFrame); #makefactors = true
 
 # Show the variable names in our data frame and how they are stored
 # Stata's describe command
